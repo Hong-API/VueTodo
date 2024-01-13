@@ -35,7 +35,7 @@
             <el-input v-model="form.Title" placeholder="Enter value" autocomplete="off" />
           </el-form-item>
           <el-form-item label="Description" :label-width="formLabelWidth" required prop="Description">
-            <el-input v-model="form.Description" placeholder="Enter value" autocomplete="off" />
+            <el-input v-model="form.Description" placeholder="Enter value" autocomplete="off"  type="textarea" />
           </el-form-item>
           <el-form-item label="Create By" :label-width="formLabelWidth" required prop="CreatedBy">
             <el-input :disabled="isEdit" v-model="form.CreatedBy" placeholder="Enter value" autocomplete="off" />
