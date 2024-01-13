@@ -35,7 +35,7 @@
             <el-input v-model="form.Title" placeholder="Enter value" autocomplete="off" />
           </el-form-item>
           <el-form-item label="Description" :label-width="formLabelWidth" required prop="Description">
-            <el-input v-model="form.Description" placeholder="Enter value" autocomplete="off"  type="textarea" />
+            <el-input v-model="form.Description" placeholder="Enter value" autocomplete="off" type="textarea" />
           </el-form-item>
           <el-form-item label="Create By" :label-width="formLabelWidth" required prop="CreatedBy">
             <el-input :disabled="isEdit" v-model="form.CreatedBy" placeholder="Enter value" autocomplete="off" />
@@ -147,13 +147,11 @@ const AddData = async (formEl: FormInstance | undefined) => {
       });
       getTodo();
       dialoginFormVisible.value = false;
-      loading.value = false;
-    } else {
-      loading.value = false;
-
     }
   } catch (error) {
     console.error(error);
+  } finally {
+    loading.value = false;
   }
 }
 const requestID = ref<number>(0)
@@ -182,13 +180,12 @@ const updateData = async (formEl: FormInstance | undefined) => {
         type: 'success'
       });
       getTodo()
-      loading.value = false;
       dialoginFormVisible.value = false;
-    } else {
-      loading.value = false;
     }
   } catch (error) {
     console.error(error);
+  } finally {
+    loading.value = false;
   }
 
 }
