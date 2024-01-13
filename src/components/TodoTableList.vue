@@ -1,16 +1,21 @@
 <template>
-    <el-table :data="props.todoList" header-row-class-name="headerColumn" >
+    <el-table :data="props.todoList" header-row-class-name="headerColumn">
+        <el-table-column label="#" width="50">
+            <template #default="scope">
+                <span>{{ scope.$index + 1 }}</span>
+            </template>
+        </el-table-column>
         <el-table-column prop="title" label="Title" />
         <el-table-column prop="description" label="Description" />
 
         <el-table-column prop="createdBy" label="Created By" />
-        <el-table-column prop="createdOn" label="Created On" >
+        <el-table-column prop="createdOn" label="Created On">
             <template #default="scope">
                 {{ dateFormat(scope.row.createdOn) }}
             </template>
         </el-table-column>
         <el-table-column prop="modifiedBy" label="Modified By" />
-        <el-table-column prop="modifiedOn" label="Modified On" >
+        <el-table-column prop="modifiedOn" label="Modified On">
             <template #default="scope">
                 {{ dateFormat(scope.row.modifiedOn) }}
             </template>
