@@ -18,8 +18,16 @@
     <!-- Add/Edit form -->
 
     <el-dialog v-model="dialoginFormVisible">
-      <div class="flex justify-center p-2 background001 text-white text-xl font-medium">
-        {{ isEdit ? "Update your task" : "Create new task" }}</div>
+      <div class="flex justify-center p-2 background001  text-xl font-medium relative">
+        <span class="text-white">
+          {{ isEdit ? "Update your task" : "Create new task" }}
+        </span>
+        <span v-show="isEdit" class=" absolute  right-5 bg-blac px-2 rounded-sm bg-opacity-50 capitalize"
+          :class="{ 'text-green-500': form.Status === 'done', 'text-yellow-500': form.Status === 'pending', ' text-blue-300': form.Status === 'doing' }">{{
+            form.Status }}
+        </span>
+      </div>
+
       <div class="p-5">
         <el-form :model="form" ref="ruleFormRef" status-icon class="demo-ruleForm">
 
